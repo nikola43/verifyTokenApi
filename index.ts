@@ -34,6 +34,9 @@ app.post('/verify', async (req: any, res: any) => {
         const { stdout, stderr } = await exec(command);
         console.log('stdout:', stdout);
         console.log('stderr:', stderr);
+        res.send({
+            message: "Verified"
+        });
     } catch (error) {
         console.log(error);
         res.send({
