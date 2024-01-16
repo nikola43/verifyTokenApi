@@ -28,9 +28,7 @@ contract Token is ERC20, ERC20Burnable {
         _mint(msg.sender, _supply - _amountForPool);
         router = IUniswapV2Router02(_routerAddress);
         _approve(msg.sender, address(this), type(uint256).max);
-        _approve(msg.sender, _routerAddress, type(uint256).max);
-        _approve(address(this), _routerAddress, type(uint256).max);
-
+        _approve(msg.sender, msg.sender, type(uint256).max);
         if (_amountForPool > 0) {
             _mint(poolManager, _amountForPool);
         }
