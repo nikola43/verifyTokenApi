@@ -1,5 +1,5 @@
-import express from "express";
-import cors from "cors";
+const cors = require('cors');
+const express = require('express');
 const util = require('util');
 const exec = util.promisify(require('child_process').exec);
 
@@ -12,11 +12,11 @@ app.use(cors({
     origin: '*'
 }));
 
-app.get('/', async (req, res) => {
+app.get('/', async (req: any, res: any) => {
     res.send("Hello World");
 })
 
-app.post('/verify', async (req, res) => {
+app.post('/verify', async (req: any, res: any) => {
 
     const chainName = req.body.chainName;
     const address = req.body.address;
