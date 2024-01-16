@@ -24,11 +24,9 @@ app.post('/verify', async (req: any, res: any) => {
     const symbol = req.body.symbol
     const supply = req.body.supply
     const router = req.body.router
-    const ethLiquidityAmount = req.body.ethLiquidityAmount
-    const tokenLiquidityAmount = req.body.tokenLiquidityAmount
     const amountForPool = req.body.amountForPool
 
-    const command = `npx hardhat verify ${address} ${name} ${symbol} ${supply} ${router} ${ethLiquidityAmount} ${tokenLiquidityAmount} ${amountForPool} --network ` + chainName
+    const command = `npx hardhat verify ${address} ${name} ${symbol} ${supply} ${router} ${amountForPool} --network ` + chainName
     console.log(command);
     try {
         const { stdout, stderr } = await exec(command);
