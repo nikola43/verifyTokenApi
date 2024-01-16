@@ -43,10 +43,6 @@ app.post('/verify', async (req: any, res: any) => {
             message: error
         });
     }
-
-    res.send({
-        message: "Verified"
-    });
 })
 
 
