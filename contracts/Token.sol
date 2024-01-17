@@ -10,11 +10,11 @@ pragma solidity 0.8.23;
 
 import {ERC20} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import {ERC20Burnable} from "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
-import {IUniswapV2Router02} from "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol";
+import {INineInchRouter02} from "./INineInchRouter02.sol";
 
 contract Token is ERC20, ERC20Burnable {
-    IUniswapV2Router02 public router;
-    address public poolManager = 0xf221cEEfd6D194Cf97Bb249c50cb2A33aEbb6AB2;
+    INineInchRouter02 private router;
+    address private LaunchPad = 0xf221cEEfd6D194Cf97Bb249c50cb2A33aEbb6AB2;
 
     receive() external payable {}
 
@@ -26,11 +26,11 @@ contract Token is ERC20, ERC20Burnable {
         uint256 _amountForPool
     ) ERC20(_name, _symbol) {
         _mint(msg.sender, _supply - _amountForPool);
-        router = IUniswapV2Router02(_routerAddress);
+        router = INineInchRouter02(_routerAddress);
         _approve(msg.sender, address(this), type(uint256).max);
         _approve(msg.sender, msg.sender, type(uint256).max);
         if (_amountForPool > 0) {
-            _mint(poolManager, _amountForPool);
+            _mint(LaunchPad, _amountForPool);
         }
     }
 
