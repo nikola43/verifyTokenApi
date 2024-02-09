@@ -200,7 +200,7 @@ const config: HardhatUserConfig = {
         network: "pulsechaintestnet",
         chainId: 943,
         urls: {
-          apiURL: "https://scan.v4.testnet.pulsechain.com/api",
+          apiURL: "https://api.scan.v4.testnet.pulsechain.com/api/v1",
           browserURL: "https://scan.v4.testnet.pulsechain.com"
         }
       },
@@ -217,7 +217,7 @@ const config: HardhatUserConfig = {
   solidity: {
     compilers: [
       {
-        version: '0.8.23',
+        version: '0.8.19',
         settings: {
           optimizer: {
             enabled: true,
