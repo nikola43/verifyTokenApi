@@ -14,11 +14,11 @@ app.use(
   })
 );
 
-app.get("/", async (req: any, res: any) => {
+app.get("/", async (req, res) => {
   res.send("Hello World");
 });
 
-app.post("/verify", async (req: any, res: any) => {
+app.post("/verify", async (req, res) => {
   const chainName = req.body.chainName;
   const address = req.body.address;
   const name = req.body.name;
